@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  devise_for :users
   resources :private_questions
   
   root 'private_questions#index'

@@ -1,0 +1,31 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Private Questions</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Title</th>
+      <th>Body</th>
+      <th>Asktime</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @private_questions.each do |private_question| %>
+      <tr>
+        <td><%= private_question.title %></td>
+        <td><%= private_question.body %></td>
+        <td><%= private_question.asktime %></td>
+        <td><%= link_to 'Show', private_question %></td>
+        <td><%= link_to 'Edit', edit_private_question_path(private_question) %></td>
+        <td><%= link_to 'Destroy', private_question, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Private Question', new_private_question_path %>

@@ -1,0 +1,19 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Title:</strong>
+  <%= @private_question.title %>
+</p>
+
+<p>
+  <strong>Body:</strong>
+  <%= @private_question.body %>
+</p>
+
+<p>
+  <strong>Asktime:</strong>
+  <%= @private_question.asktime %>
+</p>
+
+<%= link_to 'Edit', edit_private_question_path(@private_question) %> |
+<%= link_to 'Back', private_questions_path %>

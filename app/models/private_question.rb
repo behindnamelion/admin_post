@@ -1,0 +1,2 @@
+class PrivateQuestion < ApplicationRecord
+end

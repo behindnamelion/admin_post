@@ -1,5 +1,6 @@
 class PrivateQuestionsController < ApplicationController
   before_action :set_private_question, only: [:show, :edit, :update, :destroy]
+  before_action :authenticate_user!
 
   # GET /private_questions
   # GET /private_questions.json

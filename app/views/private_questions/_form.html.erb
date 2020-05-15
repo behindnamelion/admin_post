@@ -12,6 +12,11 @@
   <% end %>
 
   <div class="field">
+    <%= form.label :question_type %>
+    <%= form.select(:question_type, PrivateQuestion.question_types.keys) %>
+  </div>
+
+  <div class="field">
     <%= form.label :title %>
     <%= form.text_field :title %>
   </div>

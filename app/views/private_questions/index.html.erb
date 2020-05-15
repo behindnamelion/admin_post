@@ -5,6 +5,7 @@
 <table>
   <thead>
     <tr>
+      <th>질문 유형</th>
       <th>Title</th>
       <th>Body</th>
       <th>Asktime</th>
@@ -15,6 +16,7 @@
   <tbody>
     <% @private_questions.each do |private_question| %>
       <tr>
+        <td><%= private_question.question_type %></td>
         <td><%= private_question.title %></td>
         <td><%= private_question.body %></td>
         <td><%= private_question.asktime %></td>

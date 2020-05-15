@@ -70,6 +70,6 @@ class PrivateQuestionsController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def private_question_params
-      params.require(:private_question).permit(:title, :body, :asktime)
+      params.require(:private_question).permit(:title, :body, :asktime, :question_type)
     end
 end

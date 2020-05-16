@@ -11,52 +11,52 @@
     </div>
   <% end %>
 
-  <div class="field">
-    <%= form.label :question_type %>
-    <%= form.select(:question_type, PrivateQuestion.question_types.keys) %>
+  <div class="field form-group">
+    <%= form.label :question_type, class: "col-form-label" %>
+    <%= form.select :question_type, PrivateQuestion.question_types.keys, {}, { class: 'form-control' } %>
   </div>
 
-  <div class="field">
-    <%= form.label :title %>
-    <%= form.text_field :title %>
+  <div class="field form-group">
+    <%= form.label :title, class: "col-form-label" %>
+    <%= form.text_field :title, class: "form-control" %>
   </div>
 
-  <div class="field">
-    <%= form.label :body %>
-    <%= form.text_area :body %>
+  <div class="field form-group">
+    <%= form.label :body, class: "col-form-label" %>
+    <%= form.text_area :body, class: "form-control", rows: "10" %>
   </div>
 
-  <div class="field">
-    <%= form.label :asktime %>
-    <%= form.datetime_select :asktime %>
+  <div class="form-group form-inline">
+    <%= form.label :asktime, class: "col-form-label" %>
+    <%= form.datetime_select :asktime,  { ampm: true, order: [:year, :month, :day] }, { class: "form-control" } %>
   </div>
   
-  <div class="field">
-    <%= form.label :reply_time %>
-    <%= form.datetime_select :reply_time %>
+  <div class="form-group form-inline">
+    <%= form.label :reply_time, class: "col-form-label" %>
+    <%= form.datetime_select :reply_time,  { ampm: true, order: [:year, :month, :day] }, { class: "form-control" } %>
   </div>
   
-  <div class="field">
-    <%= form.label :reply_title %>
-    <%= form.text_field :reply_title %>
+  <div class="field form-group">
+    <%= form.label :reply_title, class: "col-form-label" %>
+    <%= form.text_field :reply_title, class: "form-control" %>
   </div>
   
-  <div class="field">
-    <%= form.label :reply_body %>
-    <%= form.text_area :reply_body %>
+  <div class="field form-group">
+    <%= form.label :reply_body, class: "col-form-label" %>
+    <%= form.text_area :reply_body, class: "form-control", rows: "10" %>
   </div>
   
-  <div class="field">
-    <%= form.label :reply_sms %>
-    <%= form.text_field :reply_sms %>
+  <div class="field form-group">
+    <%= form.label :reply_sms, class: "col-form-label" %>
+    <%= form.text_field :reply_sms, class: "form-control" %>
   </div>
   
-  <div class="field">
-    <%= form.label :reply_email %>
-    <%= form.text_field :reply_email %>
+  <div class="field form-group">
+    <%= form.label :reply_email, class: "col-form-label" %>
+    <%= form.text_field :reply_email, class: "form-control" %>
   </div>
 
   <div class="actions">
-    <%= form.submit %>
+    <%= form.submit class: "btn btn-primary" %>
   </div>
 <% end %>

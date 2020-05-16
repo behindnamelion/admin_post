@@ -30,6 +30,31 @@
     <%= form.label :asktime %>
     <%= form.datetime_select :asktime %>
   </div>
+  
+  <div class="field">
+    <%= form.label :reply_time %>
+    <%= form.datetime_select :reply_time %>
+  </div>
+  
+  <div class="field">
+    <%= form.label :reply_title %>
+    <%= form.text_field :reply_title %>
+  </div>
+  
+  <div class="field">
+    <%= form.label :reply_body %>
+    <%= form.text_area :reply_body %>
+  </div>
+  
+  <div class="field">
+    <%= form.label :reply_sms %>
+    <%= form.text_field :reply_sms %>
+  </div>
+  
+  <div class="field">
+    <%= form.label :reply_email %>
+    <%= form.text_field :reply_email %>
+  </div>
 
   <div class="actions">
     <%= form.submit %>

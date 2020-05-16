@@ -1,23 +1,48 @@
 <p id="notice"><%= notice %></p>
 
 <p>
-  <strong>Question Type:</strong>
+  <strong>질문 유형</strong>
   <%= @private_question.question_type %>
 </p>
 
 <p>
-  <strong>Title:</strong>
+  <strong>질문 날짜</strong>
+  <%= @private_question.asktime %>
+</p>
+
+<p>
+  <strong>질문 제목</strong>
   <%= @private_question.title %>
 </p>
 
 <p>
-  <strong>Body:</strong>
+  <strong>질문 내용</strong>
   <%= @private_question.body %>
 </p>
 
 <p>
-  <strong>Asktime:</strong>
-  <%= @private_question.asktime %>
+  <strong>답변 날짜</strong>
+  <%= @private_question.reply_time %>
+</p>
+
+<p>
+  <strong>답변 제목</strong>
+  <%= @private_question.reply_title %>
+</p>
+
+<p>
+  <strong>답변 내용</strong>
+  <%= @private_question.reply_body %>
+</p>
+
+<p>
+  <strong>문자 전송</strong>
+  <%= @private_question.reply_sms %>
+</p>
+
+<p>
+  <strong>이메일 전송</strong>
+  <%= @private_question.reply_email %>
 </p>
 
 <%= link_to 'Edit', edit_private_question_path(@private_question) %> |

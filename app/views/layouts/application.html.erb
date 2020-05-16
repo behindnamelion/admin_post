@@ -42,9 +42,9 @@
                 bootstrap 강의
             </a>
           </div>
-          <div class="collapse navbar-collapse" id="nav_menu">
+          <div class="collapse navbar-collapse justify-content-between" id="nav_menu">
             <ul class="nav navbar-nav">
-              <li class="active">
+              <li>
                   <a href="">HTML</a>
               </li>
               <li>
@@ -56,6 +56,23 @@
               <li>
                   <a href="">Javascript</a>
               </li>
+            </ul>
+            <ul class="nav navbar-nav navbar-right">
+              <% unless user_signed_in? %>
+              <li>
+                <a href="/users/sign_up">회원가입</a>
+              </li>
+              <li>
+                <a href="/users/sign_in">로그인</a>
+              </li>
+              <% else %>            
+              <li>
+                <a href="/users/edit"><%= current_user.email %>님의 정보</a>
+              </li>
+              <li>
+                <%= link_to "로그아웃", destroy_user_session_path, method: "delete"%>
+              </li>
+              <% end %>    
             </ul>
           </div>
         </div>

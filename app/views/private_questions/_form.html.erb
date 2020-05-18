@@ -43,7 +43,8 @@
   
   <div class="field form-group">
     <%= form.label :reply_body, class: "col-form-label" %>
-    <%= form.text_area :reply_body, class: "form-control", rows: "10" %>
+    <%= tinymce :language => "ko" %>
+    <%= form.text_area :reply_body, id: :post_content, class: "form-control tinymce", rows: "10" %>
   </div>
   
   <div class="field form-group">

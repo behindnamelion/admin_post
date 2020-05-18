@@ -26,6 +26,7 @@ class PrivateQuestionsController < ApplicationController
   # POST /private_questions.json
   def create
     @private_question = PrivateQuestion.new(private_question_params)
+    @private_question.user_id = current_user.id
 
     respond_to do |format|
       if @private_question.save

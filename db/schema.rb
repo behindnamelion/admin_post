@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_05_16_082136) do
+ActiveRecord::Schema.define(version: 2020_05_18_020003) do
 
   create_table "private_questions", force: :cascade do |t|
     t.string "title"
@@ -25,6 +25,8 @@ ActiveRecord::Schema.define(version: 2020_05_16_082136) do
     t.text "reply_body"
     t.string "reply_sms"
     t.string "reply_email"
+    t.integer "user_id"
+    t.index ["user_id"], name: "index_private_questions_on_user_id"
   end
 
   create_table "users", force: :cascade do |t|

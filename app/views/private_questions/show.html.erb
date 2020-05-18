@@ -1,5 +1,11 @@
 <p id="notice"><%= notice %></p>
 
+
+<p>
+  <strong>작성자</strong>
+  <%= @private_question.user.email %>
+</p>
+
 <p>
   <strong>질문 유형</strong>
   <%= @private_question.question_type %>

@@ -5,7 +5,7 @@ class PrivateQuestionsController < ApplicationController
   # GET /private_questions
   # GET /private_questions.json
   def index
-    @private_questions = PrivateQuestion.all
+    @pagy, @private_questions = pagy(PrivateQuestion.all, items:10) 
   end
 
   # GET /private_questions/1

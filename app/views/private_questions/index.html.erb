@@ -40,7 +40,10 @@
   </table>
   
   <!--Pagination Number At here-->
+  <nav class="text-center">
+    <%== pagy_bootstrap_nav(@pagy) %>
+  </nav>
   
-  <%= link_to '1:1 문의하기', new_private_question_path, class: "btn btn-default" %>
+  <%= link_to '1:1 문의하기', new_private_question_path, class: "btn btn-default pull-right" %>
   
 </div>

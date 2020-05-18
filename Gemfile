@@ -65,3 +65,5 @@ gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 gem 'devise'
 #gem for pagination
 gem 'pagy'
+#gem for database connection
+gem 'pg'

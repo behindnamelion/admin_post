@@ -1,0 +1,2 @@
+module TermsofservicesHelper
+end

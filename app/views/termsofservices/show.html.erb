@@ -1,0 +1,29 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Title:</strong>
+  <%= @termsofservice.title %>
+</p>
+
+<p>
+  <strong>Body:</strong>
+  <%= @termsofservice.body %>
+</p>
+
+<p>
+  <strong>Registertime:</strong>
+  <%= @termsofservice.registertime %>
+</p>
+
+<p>
+  <strong>Isshown:</strong>
+  <%= @termsofservice.isshown %>
+</p>
+
+<p>
+  <strong>Category:</strong>
+  <%= @termsofservice.category %>
+</p>
+
+<%= link_to 'Edit', edit_termsofservice_path(@termsofservice) %> |
+<%= link_to 'Back', termsofservices_path %>

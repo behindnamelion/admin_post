@@ -1,0 +1,42 @@
+<%= form_with(model: termsofservice, local: true) do |form| %>
+  <% if termsofservice.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(termsofservice.errors.count, "error") %> prohibited this termsofservice from being saved:</h2>
+
+      <ul>
+      <% termsofservice.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= form.label :category %>
+    <%= form.select :category, Termsofservice.categories.keys, {}, { class: 'form-control' } %>
+  </div>
+
+  <div class="field">
+    <%= form.label :title %>
+    <%= form.text_field :title %>
+  </div>
+
+  <div class="field">
+    <%= form.label :body %>
+    <%= form.text_area :body %>
+  </div>
+
+  <div class="field">
+    <%= form.label :registertime %>
+    <%= form.datetime_select :registertime %>
+  </div>
+
+  <div class="field">
+    <%= form.label :isshown %>
+    <%= form.check_box :isshown %>
+  </div>
+
+  <div class="actions">
+    <%= form.submit %>
+  </div>
+<% end %>

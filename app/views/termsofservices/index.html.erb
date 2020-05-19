@@ -1,0 +1,35 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Termsofservices</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Title</th>
+      <th>Body</th>
+      <th>Registertime</th>
+      <th>Isshown</th>
+      <th>Category</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @termsofservices.each do |termsofservice| %>
+      <tr>
+        <td><%= termsofservice.title %></td>
+        <td><%= termsofservice.body %></td>
+        <td><%= termsofservice.registertime %></td>
+        <td><%= termsofservice.isshown %></td>
+        <td><%= termsofservice.category %></td>
+        <td><%= link_to 'Show', termsofservice %></td>
+        <td><%= link_to 'Edit', edit_termsofservice_path(termsofservice) %></td>
+        <td><%= link_to 'Destroy', termsofservice, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Termsofservice', new_termsofservice_path %>

@@ -1,6 +1,6 @@
 class NoticesController < ApplicationController
   before_action :set_notice, only: [:show, :edit, :update, :destroy]
-  before_action :authenticate_user!, except: [:show ]
+  before_action :authenticate_user!, only: [:edit, :update, :destroy]
 
   # GET /notices
   # GET /notices.json

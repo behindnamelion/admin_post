@@ -1,6 +1,6 @@
 class FrequentQuestionsController < ApplicationController
   before_action :set_frequent_question, only: [:show, :edit, :update, :destroy]
-  before_action :authenticate_user!, except: [:show ]
+  before_action :authenticate_user!, only: [:edit, :update, :destroy]
 
   # GET /frequent_questions
   # GET /frequent_questions.json

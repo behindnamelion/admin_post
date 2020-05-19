@@ -1,0 +1,39 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Title:</strong>
+  <%= @business_question.title %>
+</p>
+
+<p>
+  <strong>Body:</strong>
+  <%= @business_question.body %>
+</p>
+
+<p>
+  <strong>Asktime:</strong>
+  <%= @business_question.asktime %>
+</p>
+
+<p>
+  <strong>Phone:</strong>
+  <%= @business_question.phone %>
+</p>
+
+<p>
+  <strong>Email:</strong>
+  <%= @business_question.email %>
+</p>
+
+<p>
+  <strong>Company:</strong>
+  <%= @business_question.company %>
+</p>
+
+<p>
+  <strong>User:</strong>
+  <%= @business_question.user.name %>
+</p>
+
+<%= link_to 'Edit', edit_business_question_path(@business_question) %> |
+<%= link_to 'Back', business_questions_path %>

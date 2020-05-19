@@ -1,5 +1,7 @@
 <p id="notice"><%= notice %></p>
-<div class="col-sm-2">
+
+<div class="row">
+  <div class="col-sm-2">
     <div class="panel panel-default">
         <div class="panel-heading">
         1:1 문의게시판
@@ -9,42 +11,56 @@
             <a href="">포럼</a><br />
             <a href="">News</a><br />
         </div>
-    </div>
-</div>
+      </div>
+  </div>
+  
+  <div class="col-sm-10">
+    <%= form_tag private_questions_path, :method => "get" do %>
+      <div class="input-group">
+        <%= text_field_tag :search, params[:search], placeholder: "작성자 검색", class: "form-control" %>
+        <div class="input-group-btn">
+          <%= submit_tag "검색", :class => 'btn btn-default' %>
+        </div>
+      </div>
+    <% end %>
+  </div>
 
-<div class="col-sm-10">
-  <table class="table table-bordered table-hover">
-    <thead>
+</div>
+  
+<table class="table table-bordered table-hover">
+  <thead>
+    <tr>
+      <th>작성자</th>
+      <th>질문 유형</th>
+      <th>제목</th>
+      <th>문의일</th>
+      <th colspan="2"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @private_questions.each do |private_question| %>
       <tr>
-        <th>질문 유형</th>
-        <th>제목</th>
-        <th>문의일</th>
-        <th colspan="2"></th>
+        <td><%= private_question.user.name %></td>
+        <td><%= private_question.question_type %></td>
+        <td>
+          <%= link_to "#{private_question.title}", private_question %>
+        </td>
+        <td><%= private_question.asktime %></td>
+        <td><%= link_to 'Edit', edit_private_question_path(private_question) %></td>
+        <td><%= link_to 'Destroy', private_question, method: :delete, data: { confirm: 'Are you sure?' } %></td>
       </tr>
-    </thead>
+    <% end %>
+  </tbody>
   
-    <tbody>
-      <% @private_questions.each do |private_question| %>
-        <tr>
-          <td><%= private_question.question_type %></td>
-          <td>
-            <%= link_to "#{private_question.title}", private_question %>
-          </td>
-          <td><%= private_question.asktime %></td>
-          <td><%= link_to 'Edit', edit_private_question_path(private_question) %></td>
-          <td><%= link_to 'Destroy', private_question, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-        </tr>
-      <% end %>
-    </tbody>
-    
-  </table>
-  
-  <!--Pagination Number At here-->
-  <nav class="text-center">
-    <%== pagy_bootstrap_nav_js(@pagy) %>
-    <script> Pagy.init() </script>
-  </nav>
-  
-  <%= link_to '1:1 문의하기', new_private_question_path, class: "btn btn-default pull-right" %>
-  
+</table>
+
+<!--Pagination Number At here-->
+<nav class="text-center">
+  <%== pagy_bootstrap_nav_js(@pagy) %>
+  <script> Pagy.init() </script>
+</nav>
+
+<%= link_to '1:1 문의하기', new_private_question_path, class: "btn btn-default pull-right" %>
+
 </div>

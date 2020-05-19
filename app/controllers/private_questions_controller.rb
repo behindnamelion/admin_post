@@ -5,7 +5,8 @@ class PrivateQuestionsController < ApplicationController
   # GET /private_questions
   # GET /private_questions.json
   def index
-    @pagy, @private_questions = pagy(PrivateQuestion.all, items:10) 
+    @searched_private_questions = PrivateQuestion.search(params[:search])
+    @pagy, @private_questions = pagy(@searched_private_questions, items:10) 
   end
 
   # GET /private_questions/1
@@ -72,6 +73,7 @@ class PrivateQuestionsController < ApplicationController
     # Only allow a list of trusted parameters through.
     def private_question_params
       params.require(:private_question).permit(:title, :body, :asktime, 
-      :question_type, :reply_state, :reply_time, :reply_title, :reply_body, :reply_sms, :reply_email)
+      :question_type, :reply_state, :reply_time, :reply_title, :reply_body, :reply_sms, :reply_email, 
+      :search)
     end
 end

@@ -1,0 +1,29 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Title:</strong>
+  <%= @frequent_question.title %>
+</p>
+
+<p>
+  <strong>Body:</strong>
+  <%= @frequent_question.body %>
+</p>
+
+<p>
+  <strong>Asktime:</strong>
+  <%= @frequent_question.asktime %>
+</p>
+
+<p>
+  <strong>Isshown:</strong>
+  <%= @frequent_question.isshown %>
+</p>
+
+<p>
+  <strong>Question type:</strong>
+  <%= @frequent_question.question_type %>
+</p>
+
+<%= link_to 'Edit', edit_frequent_question_path(@frequent_question) %> |
+<%= link_to 'Back', frequent_questions_path %>

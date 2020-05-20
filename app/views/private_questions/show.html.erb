@@ -1,50 +1,47 @@
-<p id="notice"><%= notice %></p>
+<table class="table table-bordered">
+  <tbody>
+    <tr>
+        <th scope="row">작성자</th>
+        <td><%= @private_question.user.name %></td>
+      </tr>
+      <tr>
+        <th scope="row">작성 날짜</th>
+        <td><%= @private_question.created_at %></td>
+      </tr>
+      <tr>
+        <th scope="row">질문 유형</th>
+        <td><%= @private_question.question_type %></td>
+      </tr>
+      <tr>
+        <th scope="row">질문 제목</th>
+        <td><%= @private_question.title %></td>
+      </tr>
+      <tr>
+        <th scope="row">질문 내용</th>
+        <td><%= @private_question.body %></td>
+      </tr>
+      <tr>
+        <th scope="row">답변 날짜</th>
+        <td><%= @private_question.reply_time %></td>
+      </tr>
+      <tr>
+        <th scope="row">답변 제목</th>
+        <td><%= @private_question.reply_title %></td>
+      </tr> 
+      <tr>
+        <th scope="row">답변 내용</th>
+        <td><%= @private_question.reply_body.html_safe %></td>
+      </tr>
+      <tr>
+        <th scope="row">연락처</th>
+        <td><%= @private_question.reply_sms %></td>
+      </tr>
+      <tr>
+        <th scope="row">이메일</th>
+        <td><%= @private_question.reply_email %></td>
+      </tr>
+  </tbody>
+</table>
 
-
-<p>
-  <strong>작성자</strong>
-  <%= @private_question.user.name %>
-</p>
-
-<p>
-  <strong>질문 유형</strong>
-  <%= @private_question.question_type %>
-</p>
-
-<p>
-  <strong>질문 제목</strong>
-  <%= @private_question.title %>
-</p>
-
-<p>
-  <strong>질문 내용</strong>
-  <%= @private_question.body %>
-</p>
-
-<p>
-  <strong>답변 날짜</strong>
-  <%= @private_question.reply_time %>
-</p>
-
-<p>
-  <strong>답변 제목</strong>
-  <%= @private_question.reply_title %>
-</p>
-
-<p>
-  <strong>답변 내용</strong>
-  <%= @private_question.reply_body.html_safe %>
-</p>
-
-<p>
-  <strong>문자 전송</strong>
-  <%= @private_question.reply_sms %>
-</p>
-
-<p>
-  <strong>이메일 전송</strong>
-  <%= @private_question.reply_email %>
-</p>
-
-<%= link_to 'Edit', edit_private_question_path(@private_question) %> |
-<%= link_to 'Back', private_questions_path %>
+<%= link_to '수정', edit_private_question_path(@private_question) %> |
+<%= link_to '목록', private_questions_path %>

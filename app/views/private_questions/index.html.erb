@@ -45,8 +45,9 @@
       <th>작성자</th>
       <th>질문 유형</th>
       <th>제목</th>
-      <th>문의일</th>
-      <th colspan="2"></th>
+      <th>문의 날짜</th>
+      <th>답변 상태</th>
+      <th colspan="2">관리</th>
     </tr>
   </thead>
 
@@ -59,8 +60,17 @@
           <%= link_to "#{private_question.title}", private_question %>
         </td>
         <td><%= private_question.created_at %></td>
-        <td><%= link_to 'Edit', edit_private_question_path(private_question) %></td>
-        <td><%= link_to 'Destroy', private_question, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td>
+          <% if private_question.reply_body.empty? %>
+            <span>답변대기</span>
+            <%= link_to '답변등록', edit_private_question_path(private_question), :class => "btn btn-success pull-right" %>
+          <% else %>
+            <span>답변완료</span>
+            <%= link_to '답변수정', edit_private_question_path(private_question), :class => "btn btn-info pull-right" %>
+          <% end %>
+        </td>
+        <td><%= link_to '수정', edit_private_question_path(private_question) %></td>
+        <td><%= link_to '삭제', private_question, method: :delete, data: { confirm: 'Are you sure?' } %></td>
       </tr>
     <% end %>
   </tbody>

@@ -21,7 +21,7 @@
   <div class="col-sm-9">
     <%= form_tag private_questions_path, :method => "get" do %>
       <div class="input-group">
-        <%= text_field_tag :search, params[:search], placeholder: "작성자 검색", class: "form-control" %>
+        <%= text_field_tag :search, params[:search], placeholder: "작성자/제목/내용 검색", class: "form-control" %>
         <div class="input-group-btn">
           <%= submit_tag "검색", :class => 'btn btn-default' %>
         </div>
@@ -74,7 +74,7 @@
           <% end %>
         </td>
         <td><%= link_to '수정', edit_private_question_path(private_question) %></td>
-        <td><%= link_to '삭제', private_question, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td><%= link_to '삭제', private_question, method: :delete, data: { confirm: '정말로 삭제하시겠습니까?' } %></td>
       </tr>
     <% end %>
   </tbody>

@@ -23,8 +23,6 @@ class PrivateQuestion < ApplicationRecord
         else
             @searched_private_questions = @searched_private_questions.order(:created_at)
         end
-        
-        
     end
     
 end

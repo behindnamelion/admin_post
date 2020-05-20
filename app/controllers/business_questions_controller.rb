@@ -6,7 +6,8 @@ class BusinessQuestionsController < ApplicationController
   # GET /business_questions
   # GET /business_questions.json
   def index
-    @business_questions = BusinessQuestion.all
+    @searched_business_questions = BusinessQuestion.search(params[:search], params[:date_from], params[:date_to])
+    @pagy, @business_questions = pagy(@searched_business_questions, items:10) 
   end
 
   # GET /business_questions/1
@@ -72,7 +73,9 @@ class BusinessQuestionsController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def business_question_params
-      params.require(:business_question).permit(:title, :body, :phone, :email, :company, :user_id)
+      params.require(:business_question).permit(:title, :body, 
+      :phone, :email, :company, 
+      :search, :date_from, :date_to)
     end
     
     def require_permission

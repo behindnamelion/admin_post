@@ -11,32 +11,42 @@
     </div>
   <% end %>
 
-  <div class="field">
-    <%= form.label :title %>
-    <%= form.text_field :title %>
-  </div>
+<table class="table table-bordered">
+  <tbody>
+    <% if business_question.user != nil %>
+    <tr>
+      <th scope="row">작성자</th>
+      <td><%= business_question.user.name %></td>
+    </tr>
+    <tr>
+      <th scope="row">작성 날짜</th>
+      <td><%= business_question.created_at %></td>
+    </tr>
+    <% end %>
+    <tr>
+      <th scope="row">회사명</th>
+      <td><%= form.text_field :company, class: "form-control"%></td>
+    </tr>
+    <tr>
+      <th scope="row">이메일 주소</th>
+      <td><%= form.text_field :email, class: "form-control" %></td>
+    </tr>
+    <tr>
+      <th scope="row">핸드폰 번호</th>
+      <td><%= form.text_field :phone, class: "form-control" %></td>
+    </tr>
+    <tr>
+      <th scope="row">문의 제목</th>
+      <td><%= form.text_field :title, class: "form-control" %></td>
+    </tr>
+    <tr>
+      <th scope="row">문의 내용</th>
+      <td><%= form.text_area :body, class: "form-control", rows: "10" %></td>
+    </tr>
+  </tbody>
+</table>
 
-  <div class="field">
-    <%= form.label :body %>
-    <%= form.text_area :body %>
-  </div>
-
-  <div class="field">
-    <%= form.label :phone %>
-    <%= form.text_field :phone %>
-  </div>
-
-  <div class="field">
-    <%= form.label :email %>
-    <%= form.text_field :email %>
-  </div>
-
-  <div class="field">
-    <%= form.label :company %>
-    <%= form.text_field :company %>
-  </div>
-
-  <div class="actions">
-    <%= form.submit %>
-  </div>
+<div class="actions">
+  <%= form.submit class: "btn btn-primary pull-right" %>
+</div>
 <% end %>

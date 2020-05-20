@@ -1,6 +1,7 @@
-<h1>1:1 문의 게시물</h1>
+<h1>1:1 문의</h1>
 
 <%= render 'form', private_question: @private_question %>
 
-<%= link_to 'Show', @private_question %> |
-<%= link_to 'Back', private_questions_path %>
+<%= link_to '보기', @private_question, class: "btn btn-success" %> |
+<%= link_to '목록', private_questions_path, class: "btn btn-info" %>
+<br><br>

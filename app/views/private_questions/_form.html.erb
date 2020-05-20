@@ -13,6 +13,7 @@
 
   <table class="table table-bordered">
     <tbody>
+      <% if private_question.user != nil %>
       <tr>
         <th scope="row">작성자</th>
         <td><%= private_question.user.name %></td>
@@ -21,6 +22,7 @@
         <th scope="row">작성 날짜</th>
         <td><%= private_question.created_at %></td>
       </tr>
+      <% end %>
       <tr>
         <th scope="row">질문 유형</th>
         <td><%= form.select :question_type, PrivateQuestion.question_types.keys, {}, { class: 'form-control' } %></td>

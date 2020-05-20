@@ -1,24 +1,30 @@
-<p id="notice"><%= notice %></p>
+<table class="table table-bordered">
+  <tbody>
+    <tr>
+      <th scope="row">카테고리</th>
+      <td><%= @frequent_question.question_type %></td>
+    </tr>
+    <tr>
+      <th scope="row">전시 여부</th>
+      <td>
+        <%= check_box "frequent_question", "isshown", {:checked => @frequent_question.isshown, :disabled => true} %>
+      </td>
+    </tr>
+    <tr>
+      <th scope="row">등록날짜</th>
+      <td><%= @frequent_question.created_at %></td>
+    </tr>
+    <tr>
+      <th scope="row">FAQ 질문</th>
+      <td><%= @frequent_question.title %></td>
+    </tr>
+    <tr>
+      <th scope="row">FAQ 답변</th>
+      <td><%= @frequent_question.body.html_safe %></td>
+    </tr>
+  </tbody>
+</table>
 
-<p>
-  <strong>Title:</strong>
-  <%= @frequent_question.title %>
-</p>
-
-<p>
-  <strong>Body:</strong>
-  <%= @frequent_question.body %>
-</p>
-
-<p>
-  <strong>Isshown:</strong>
-  <%= @frequent_question.isshown %>
-</p>
-
-<p>
-  <strong>Question type:</strong>
-  <%= @frequent_question.question_type %>
-</p>
-
-<%= link_to 'Edit', edit_frequent_question_path(@frequent_question) %> |
-<%= link_to 'Back', frequent_questions_path %>
+<%= link_to '수정', edit_frequent_question_path(@frequent_question), class: "btn btn-success" %> |
+<%= link_to '목록', frequent_questions_path, class: "btn btn-info" %>
+<br><br>

@@ -5,9 +5,9 @@ class FrequentQuestionsController < ApplicationController
   # GET /frequent_questions
   # GET /frequent_questions.json
   def index
-    @frequent_questions = FrequentQuestion.all
+    @searched_frequent_questions = FrequentQuestion.search(params[:search], params[:date_from], params[:date_to])
+    @pagy, @frequent_questions = pagy(@searched_frequent_questions, items:10) 
   end
-
   # GET /frequent_questions/1
   # GET /frequent_questions/1.json
   def show
@@ -70,6 +70,8 @@ class FrequentQuestionsController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def frequent_question_params
-      params.require(:frequent_question).permit(:title, :body, :isshown, :question_type)
+      params.require(:frequent_question).permit(:title, :body, :isshown, 
+      :question_type, 
+      :search, :date_from, :date_to)
     end
 end

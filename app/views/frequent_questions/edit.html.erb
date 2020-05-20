@@ -1,6 +1,7 @@
-<h1>Editing Frequent Question</h1>
+<h1>FAQ - 자주 묻는 질문</h1>
 
 <%= render 'form', frequent_question: @frequent_question %>
 
-<%= link_to 'Show', @frequent_question %> |
-<%= link_to 'Back', frequent_questions_path %>
+<%= link_to '보기', @frequent_question, class: "btn btn-success" %> |
+<%= link_to '목록', frequent_questions_path, class: "btn btn-info" %>
+<br><br>

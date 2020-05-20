@@ -1,33 +1,82 @@
 <p id="notice"><%= notice %></p>
 
-<h1>Frequent Questions</h1>
+<div class="row">
+  <div class="col-sm-3">
+    <div class="panel panel-default">
+        <div class="panel-heading">
+        게시판 관리
+        </div>
+        <div class="panel-body">
+          <div class="list_group">
+            <a href="<%= business_questions_path %>" class="list-group-item">Business 게시판</a>
+            <a href="<%= private_questions_path %>" class="list-group-item">1:1 문의 게시판</a>
+            <a href="<%= frequent_questions_path %>" class="list-group-item">FAQ 게시판</a>
+            <a href="<%= notices_path %>" class="list-group-item">공지사항</a>
+            <a href="<%= termsofservices_path %>" class="list-group-item">약관</a>
+          </div>
+        </div>
+      </div>
+  </div>
+  
+  <div class="col-sm-9">
+    <%= form_tag frequent_questions_path, :method => "get" do %>
+      <div class="input-group">
+        <%= text_field_tag :search, params[:search], placeholder: "제목/내용 검색", class: "form-control" %>
+        <div class="input-group-btn">
+          <%= submit_tag "검색", :class => 'btn btn-default' %>
+        </div>
+      </div>
+      <br>
+      <div class="input-group date form-inline">
+        <div class="input-group-addon">
+          <span class="glyphicon glyphicon-th"></span>
+        </div>
+        <%= text_field_tag :date_from, params[:date_from], placeholder: "시작 날짜", size: 9, data: {provide: 'datepicker'}, class: 'form-control' %>
+      
+        <div class="input-group-addon">
+            <span class="glyphicon glyphicon-th"></span>
+        </div>
+        <%= text_field_tag :date_to, params[:date_to], placeholder: "끝 날짜", size: 9, data: {provide: 'datepicker'}, class: 'form-control' %>
+      </div>
+    <% end %>
+  </div>
+</div>
 
-<table>
+
+
+<table class="table table-bordered table-hover">
   <thead>
     <tr>
-      <th>Title</th>
-      <th>Body</th>
-      <th>Isshown</th>
-      <th>Question type</th>
-      <th colspan="3"></th>
+      <th>카테고리</th>
+      <th>제목</th>
+      <th>전시여부</th>
+      <th>등록일시</th>
+      <th colspan="2">관리</th>
     </tr>
   </thead>
 
   <tbody>
     <% @frequent_questions.each do |frequent_question| %>
       <tr>
-        <td><%= frequent_question.title %></td>
-        <td><%= frequent_question.body %></td>
-        <td><%= frequent_question.isshown %></td>
         <td><%= frequent_question.question_type %></td>
-        <td><%= link_to 'Show', frequent_question %></td>
-        <td><%= link_to 'Edit', edit_frequent_question_path(frequent_question) %></td>
-        <td><%= link_to 'Destroy', frequent_question, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td>
+          <%= link_to "#{frequent_question.title}", frequent_question %>
+        </td>
+        <td>
+          <%= check_box "frequent_question", "isshown", {:checked => frequent_question.isshown, :disabled => true} %>
+        </td>
+        <td><%= frequent_question.created_at %></td>
+        <td><%= link_to '수정', edit_frequent_question_path(frequent_question) %></td>
+        <td><%= link_to '삭제', frequent_question, method: :delete, data: { confirm: '정말로 삭제하시겠습니까?' } %></td>
       </tr>
     <% end %>
   </tbody>
 </table>
-
+<!--Pagination Number At here-->
+<nav class="text-center">
+  <%== pagy_bootstrap_nav_js(@pagy) %>
+  <script> Pagy.init() </script>
+</nav>
 <br>
 
-<%= link_to 'New Frequent Question', new_frequent_question_path %>
+<%= link_to 'FAQ 작성하기', new_frequent_question_path, class: "btn btn-default pull-right" %>

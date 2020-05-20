@@ -11,32 +11,40 @@
     </div>
   <% end %>
 
-  <div class="field">
-    <%= form.label :category %>
-    <%= form.select :category, Termsofservice.categories.keys, {}, { class: 'form-control' } %>
-  </div>
 
-  <div class="field">
-    <%= form.label :title %>
-    <%= form.text_field :title %>
-  </div>
-
-  <div class="field">
-    <%= form.label :body %>
-    <%= form.text_area :body %>
-  </div>
-
-  <div class="field">
-    <%= form.label :registertime %>
-    <%= form.datetime_select :registertime %>
-  </div>
-
-  <div class="field">
-    <%= form.label :isshown %>
-    <%= form.check_box :isshown %>
-  </div>
+  <table class="table table-bordered">
+    <tbody>
+      <tr>
+        <th scope="row">전시여부</th>
+        <td>
+          <%= form.check_box :isshown %> 전시
+        </td>
+      </tr>
+      <tr>
+        <th scope="row">등록 날짜</th>
+        <td><%= termsofservice.created_at %></td>
+      </tr>
+      <tr>
+        <th scope="row">카테고리</th>
+        <td>
+          <%= form.select :category, Termsofservice.categories.keys, {}, { class: 'form-control' } %>
+        </td>
+      </tr>
+      <tr>
+        <th scope="row">제목</th>
+        <td><%= form.text_field :title, class: "form-control" %></td>
+      </tr>
+      <tr>
+        <th scope="row">내용</th>
+        <td>
+          <%= tinymce :language => "ko" %>
+          <%= form.text_area :body, id: :post_content, class: "form-control tinymce", rows: "15" %>
+        </td>
+      </tr>
+    </tbody>
+  </table>
 
   <div class="actions">
-    <%= form.submit %>
+    <%= form.submit class: "btn btn-primary pull-right" %>
   </div>
 <% end %>

@@ -1,29 +1,30 @@
-<p id="notice"><%= notice %></p>
+<table class="table table-bordered">
+  <tbody>
+    <tr>
+      <th scope="row">전시 여부</th>
+      <td>
+        <%= check_box "termsofservice", "isshown", {:checked => @termsofservice.isshown, :disabled => true} %>
+      </td>
+    </tr>
+    <tr>
+      <th scope="row">등록날짜</th>
+      <td><%= @termsofservice.created_at %></td>
+    </tr>
+    <tr>
+      <th scope="row">카테고리</th>
+      <td><%= @termsofservice.category %></td>
+    </tr>
+    <tr>
+      <th scope="row">제목</th>
+      <td><%= @termsofservice.title %></td>
+    </tr>
+    <tr>
+      <th scope="row">내용</th>
+      <td><%= @termsofservice.body.html_safe %></td>
+    </tr>
+  </tbody>
+</table>
 
-<p>
-  <strong>Title:</strong>
-  <%= @termsofservice.title %>
-</p>
-
-<p>
-  <strong>Body:</strong>
-  <%= @termsofservice.body %>
-</p>
-
-<p>
-  <strong>Registertime:</strong>
-  <%= @termsofservice.registertime %>
-</p>
-
-<p>
-  <strong>Isshown:</strong>
-  <%= @termsofservice.isshown %>
-</p>
-
-<p>
-  <strong>Category:</strong>
-  <%= @termsofservice.category %>
-</p>
-
-<%= link_to 'Edit', edit_termsofservice_path(@termsofservice) %> |
-<%= link_to 'Back', termsofservices_path %>
+<%= link_to '수정', edit_termsofservice_path(@termsofservice), class: "btn btn-success" %> |
+<%= link_to '목록', termsofservices_path, class: "btn btn-info" %>
+<br><br>

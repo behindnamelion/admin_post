@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_05_20_162629) do
+ActiveRecord::Schema.define(version: 2020_05_20_170818) do
 
   create_table "business_questions", force: :cascade do |t|
     t.string "title"
@@ -60,7 +60,6 @@ ActiveRecord::Schema.define(version: 2020_05_20_162629) do
   create_table "termsofservices", force: :cascade do |t|
     t.string "title"
     t.text "body"
-    t.datetime "registertime"
     t.boolean "isshown"
     t.integer "category"
     t.datetime "created_at", null: false

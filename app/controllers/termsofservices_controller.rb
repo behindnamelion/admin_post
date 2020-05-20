@@ -5,7 +5,8 @@ class TermsofservicesController < ApplicationController
   # GET /termsofservices
   # GET /termsofservices.json
   def index
-    @termsofservices = Termsofservice.all
+    @searched_termsofservices = Termsofservice.search(params[:search], params[:date_from], params[:date_to])
+    @pagy, @termsofservices = pagy(@searched_termsofservices, items:10)
   end
 
   # GET /termsofservices/1
@@ -70,6 +71,8 @@ class TermsofservicesController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def termsofservice_params
-      params.require(:termsofservice).permit(:title, :body, :registertime, :isshown, :category)
+      params.require(:termsofservice).permit(:title, :body, :isshown, 
+      :category,
+      :search, :date_from, :date_to)
     end
 end

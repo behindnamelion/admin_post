@@ -58,7 +58,7 @@
         <td>
           <%= link_to "#{private_question.title}", private_question %>
         </td>
-        <td><%= private_question.asktime %></td>
+        <td><%= private_question.created_at %></td>
         <td><%= link_to 'Edit', edit_private_question_path(private_question) %></td>
         <td><%= link_to 'Destroy', private_question, method: :delete, data: { confirm: 'Are you sure?' } %></td>
       </tr>

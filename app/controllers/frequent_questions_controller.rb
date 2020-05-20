@@ -70,6 +70,6 @@ class FrequentQuestionsController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def frequent_question_params
-      params.require(:frequent_question).permit(:title, :body, :asktime, :isshown, :question_type)
+      params.require(:frequent_question).permit(:title, :body, :isshown, :question_type)
     end
 end

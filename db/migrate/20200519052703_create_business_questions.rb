@@ -3,7 +3,6 @@ class CreateBusinessQuestions < ActiveRecord::Migration[5.2]
     create_table :business_questions do |t|
       t.string :title
       t.text :body
-      t.datetime :asktime
       t.string :phone
       t.string :email
       t.string :company

@@ -72,7 +72,7 @@ class BusinessQuestionsController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def business_question_params
-      params.require(:business_question).permit(:title, :body, :asktime, :phone, :email, :company, :user_id)
+      params.require(:business_question).permit(:title, :body, :phone, :email, :company, :user_id)
     end
     
     def require_permission

@@ -10,12 +10,11 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_05_19_071933) do
+ActiveRecord::Schema.define(version: 2020_05_20_083436) do
 
   create_table "business_questions", force: :cascade do |t|
     t.string "title"
     t.text "body"
-    t.datetime "asktime"
     t.string "phone"
     t.string "email"
     t.string "company"
@@ -28,7 +27,6 @@ ActiveRecord::Schema.define(version: 2020_05_19_071933) do
   create_table "frequent_questions", force: :cascade do |t|
     t.string "title"
     t.text "body"
-    t.datetime "asktime"
     t.boolean "isshown"
     t.integer "question_type"
     t.datetime "created_at", null: false
@@ -47,7 +45,6 @@ ActiveRecord::Schema.define(version: 2020_05_19_071933) do
   create_table "private_questions", force: :cascade do |t|
     t.string "title"
     t.text "body"
-    t.datetime "asktime"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.integer "question_type"

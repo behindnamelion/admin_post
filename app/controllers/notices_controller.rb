@@ -5,7 +5,8 @@ class NoticesController < ApplicationController
   # GET /notices
   # GET /notices.json
   def index
-    @notices = Notice.all
+    @searched_notices = Notice.search(params[:search], params[:date_from], params[:date_to])
+    @pagy, @notices = pagy(@searched_notices, items:10) 
   end
 
   # GET /notices/1
@@ -70,6 +71,7 @@ class NoticesController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def notice_params
-      params.require(:notice).permit(:title, :body, :noticetime, :isshown)
+      params.require(:notice).permit(:title, :body, :isshown, 
+      :search, :date_from, :date_to)
     end
 end

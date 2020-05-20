@@ -22,6 +22,18 @@
           <%= submit_tag "검색", :class => 'btn btn-default' %>
         </div>
       </div>
+      <br>
+      <div class="input-group date form-inline">
+        <div class="input-group-addon">
+          <span class="glyphicon glyphicon-th"></span>
+        </div>
+        <%= text_field_tag :date_from, params[:date_from], placeholder: "시작 날짜", size: 9, data: {provide: 'datepicker'}, class: 'form-control' %>
+      
+        <div class="input-group-addon">
+            <span class="glyphicon glyphicon-th"></span>
+        </div>
+        <%= text_field_tag :date_to, params[:date_to], placeholder: "끝 날짜", size: 9, data: {provide: 'datepicker'}, class: 'form-control' %>
+      </div>
     <% end %>
   </div>
 

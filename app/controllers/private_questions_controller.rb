@@ -5,7 +5,7 @@ class PrivateQuestionsController < ApplicationController
   # GET /private_questions
   # GET /private_questions.json
   def index
-    @searched_private_questions = PrivateQuestion.search(params[:search])
+    @searched_private_questions = PrivateQuestion.search(params[:search], params[:date_from], params[:date_to])
     @pagy, @private_questions = pagy(@searched_private_questions, items:10) 
   end
 
@@ -74,6 +74,6 @@ class PrivateQuestionsController < ApplicationController
     def private_question_params
       params.require(:private_question).permit(:title, :body, :asktime, 
       :question_type, :reply_state, :reply_time, :reply_title, :reply_body, :reply_sms, :reply_email, 
-      :search)
+      :search, :date_from, :date_to)
     end
 end

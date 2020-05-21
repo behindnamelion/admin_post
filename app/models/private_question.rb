@@ -8,7 +8,7 @@ class PrivateQuestion < ApplicationRecord
         if !date_from.blank? && !date_to.blank?
             #convert mm/dd/yyyy string to yyyy-mm-dd format
             start_date = Date.strptime(date_from, '%m/%d/%Y').strftime('%Y-%m-%d')
-            end_date = Date.strptime(date_to, '%m/%d/%Y').strftime('%Y-%m-%d')
+            end_date = Date.strptime(date_to, '%m/%d/%Y').next_day(1).strftime('%Y-%m-%d')
             dateFiltered = self.where(created_at: start_date..end_date )
         end
         

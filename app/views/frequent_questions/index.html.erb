@@ -65,7 +65,7 @@
         <td>
           <%= check_box "frequent_question", "isshown", {:checked => frequent_question.isshown, :disabled => true} %>
         </td>
-        <td><%= frequent_question.created_at %></td>
+        <td><%= frequent_question.created_at.strftime('%Y-%m-%d %H:%M') %></td>
         <td><%= link_to '수정', edit_frequent_question_path(frequent_question) %></td>
         <td><%= link_to '삭제', frequent_question, method: :delete, data: { confirm: '정말로 삭제하시겠습니까?' } %></td>
       </tr>

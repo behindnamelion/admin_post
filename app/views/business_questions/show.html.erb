@@ -6,7 +6,7 @@
     </tr>
     <tr>
       <th scope="row">작성 날짜</th>
-      <td><%= @business_question.created_at %></td>
+      <td><%= @business_question.created_at.strftime('%Y-%m-%d %H:%M') %></td>
     </tr>
     <tr>
       <th scope="row">회사명</th>

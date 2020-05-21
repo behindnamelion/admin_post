@@ -14,7 +14,7 @@
     </tr>
     <tr>
       <th scope="row">등록날짜</th>
-      <td><%= @frequent_question.created_at %></td>
+      <td><%= @frequent_question.created_at.strftime('%Y-%m-%d %H:%M') %></td>
     </tr>
     <tr>
       <th scope="row">FAQ 질문</th>

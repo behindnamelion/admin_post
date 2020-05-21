@@ -65,7 +65,7 @@
         <td>
           <%= check_box "termsofservice", "isshown", {:checked => termsofservice.isshown, :disabled => true} %>
         </td>
-        <td><%= termsofservice.created_at %></td>
+        <td><%= termsofservice.created_at.strftime('%Y-%m-%d %H:%M') %></td>
         <td><%= link_to '수정', edit_termsofservice_path(termsofservice) %></td>
         <td><%= link_to '삭제', termsofservice, method: :delete, data: { confirm: '정말로 삭제하시겠습니까?' } %></td>
       </tr>

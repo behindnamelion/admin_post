@@ -65,7 +65,7 @@
         </td>
         <td><%= business_question.email %></td>
         <td><%= business_question.phone %></td>
-        <td><%= business_question.created_at %></td>
+        <td><%= business_question.created_at.strftime('%Y-%m-%d %H:%M') %></td>
         <td><%= link_to '삭제', business_question, method: :delete, data: { confirm: '정말로 삭제하시겠습니까?' } %></td>
       </tr>
     <% end %>

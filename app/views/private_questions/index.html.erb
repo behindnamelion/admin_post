@@ -59,7 +59,9 @@
     <% @private_questions.each do |private_question| %>
       <tr>
         <td><%= private_question.user.name %></td>
-        <td><%= private_question.question_type %></td>
+        <td>
+          <%= PrivateQuestion.human_enum_name(:question_type, private_question.question_type) %>
+        </td>
         <td>
           <%= link_to "#{private_question.title}", private_question %>
         </td>

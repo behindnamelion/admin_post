@@ -1,0 +1,23 @@
+ko:
+    activerecord:
+        attributes:
+            private_question:
+                question_types:
+                    order_cancel: 취소문의
+                    order_pay: 주문결제문의
+                    product_info: 상품정보문의
+                    product_return: 반품문의
+                    others: 기타문의
+            frequent_question:
+                question_types:
+                    member: 회원
+                    pay_order: 주문/결제
+                    shipping: 배송관련
+                    coupon_point: 쿠폰/적립금
+                    cancel_return: 취소/반품
+                    others: 기타
+            termsofservice:
+                categories:
+                    terms_use: 이용약관
+                    privacy_policy: 개인정보처리방침
+                    personal_info: 개인정보 수집 및 이용

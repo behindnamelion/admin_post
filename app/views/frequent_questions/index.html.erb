@@ -56,7 +56,9 @@
   <tbody>
     <% @frequent_questions.each do |frequent_question| %>
       <tr>
-        <td><%= frequent_question.question_type %></td>
+        <td>
+          <%= FrequentQuestion.human_enum_name(:question_type, frequent_question.question_type) %>
+        </td>
         <td>
           <%= link_to "#{frequent_question.title}", frequent_question %>
         </td>

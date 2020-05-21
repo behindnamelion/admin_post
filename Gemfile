@@ -72,4 +72,4 @@ gem 'pg'
 #gem for Post Editor
 gem 'tinymce-rails'
 #gem for Enum Localization
-# gem 'human_enum_name'
+gem 'human_enum_name'

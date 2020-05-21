@@ -12,7 +12,9 @@
     </tr>
     <tr>
       <th scope="row">카테고리</th>
-      <td><%= @termsofservice.category %></td>
+      <td>
+        <%= Termsofservice.human_enum_name(:category, @termsofservice.category) %>
+      </td>
     </tr>
     <tr>
       <th scope="row">제목</th>

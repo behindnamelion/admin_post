@@ -56,7 +56,9 @@
   <tbody>
     <% @termsofservices.each do |termsofservice| %>
       <tr>
-        <td><%= termsofservice.category %></td>
+        <td>
+          <%= Termsofservice.human_enum_name(:category, termsofservice.category) %>
+        </td>
         <td>
           <%= link_to "#{termsofservice.title}", termsofservice %>
         </td>

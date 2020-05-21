@@ -2,7 +2,9 @@
   <tbody>
     <tr>
       <th scope="row">카테고리</th>
-      <td><%= @frequent_question.question_type %></td>
+      <td>
+        <%= FrequentQuestion.human_enum_name(:question_type, @frequent_question.question_type) %>
+      </td>
     </tr>
     <tr>
       <th scope="row">전시 여부</th>

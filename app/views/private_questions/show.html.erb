@@ -10,7 +10,9 @@
     </tr>
     <tr>
       <th scope="row">질문 유형</th>
-      <td><%= @private_question.question_type %></td>
+      <td>
+        <%= PrivateQuestion.human_enum_name(:question_type, @private_question.question_type) %>
+      </td>
     </tr>
     <tr>
       <th scope="row">질문 제목</th>

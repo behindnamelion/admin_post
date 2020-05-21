@@ -73,3 +73,5 @@ gem 'pg'
 gem 'tinymce-rails'
 #gem for Enum Localization
 gem 'human_enum_name'
+#gem for AJAX
+gem 'jquery-rails'

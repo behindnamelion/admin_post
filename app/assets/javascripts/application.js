@@ -17,3 +17,4 @@
 //= require pagy
 //= require tinymce
 //= require tinymce-jquery
+//= require jquery

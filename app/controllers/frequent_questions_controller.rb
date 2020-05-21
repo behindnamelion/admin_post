@@ -2,6 +2,16 @@ class FrequentQuestionsController < ApplicationController
   before_action :set_frequent_question, only: [:show, :edit, :update, :destroy]
   before_action :authenticate_user!, only: [:new, :create, :edit, :update, :destroy]
 
+  def toggle
+    @frequent_question = FrequentQuestion.find(params[:id])
+
+    if @frequent_question != nil? 
+      @frequent_question.update_attributes(:isshown => params[:isshown])
+    else
+      set_flash "Error, please try again."
+    end
+  end
+
   # GET /frequent_questions
   # GET /frequent_questions.json
   def index

@@ -57,7 +57,12 @@
       <tr>
         <td><%= link_to "#{notice.title}", notice %></td>
         <td>
-          <%= check_box "notice", "isshown", {:checked => notice.isshown, :disabled => true} %>
+          <%= check_box_tag 'isshown', notice.id, notice.isshown,
+              data: {
+                remote: true,
+                url: url_for(action: :toggle, id: notice.id),
+                method: "POST"
+              } %>
         </td>
         <td><%= notice.created_at.strftime('%Y-%m-%d %H:%M') %></td>
         <td><%= link_to '수정', edit_notice_path(notice) %></td>

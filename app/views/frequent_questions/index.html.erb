@@ -63,7 +63,12 @@
           <%= link_to "#{frequent_question.title}", frequent_question %>
         </td>
         <td>
-          <%= check_box "frequent_question", "isshown", {:checked => frequent_question.isshown, :disabled => true} %>
+          <%= check_box_tag 'isshown', frequent_question.id, frequent_question.isshown,
+              data: {
+                remote: true,
+                url: url_for(action: :toggle, id: frequent_question.id),
+                method: "POST"
+              } %>
         </td>
         <td><%= frequent_question.created_at.strftime('%Y-%m-%d %H:%M') %></td>
         <td><%= link_to '수정', edit_frequent_question_path(frequent_question) %></td>

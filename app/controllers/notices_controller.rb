@@ -2,6 +2,15 @@ class NoticesController < ApplicationController
   before_action :set_notice, only: [:show, :edit, :update, :destroy]
   before_action :authenticate_user!, only: [:new, :create, :edit, :update, :destroy]
 
+  def toggle
+    @notice = Notice.find(params[:id])
+
+    if @notice != nil? 
+      @notice.update_attributes(:isshown => params[:isshown])
+    else
+      set_flash "Error, please try again."
+    end
+  end
   # GET /notices
   # GET /notices.json
   def index

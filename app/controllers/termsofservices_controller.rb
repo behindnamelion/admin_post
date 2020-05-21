@@ -2,6 +2,16 @@ class TermsofservicesController < ApplicationController
   before_action :set_termsofservice, only: [:show, :edit, :update, :destroy]
   before_action :authenticate_user!, only: [:new, :create, :edit, :update, :destroy]
 
+
+  def toggle
+    @termsofservice = Termsofservice.find(params[:id])
+
+    if @termsofservice != nil? 
+      @termsofservice.update_attributes(:isshown => params[:isshown])
+    else
+      set_flash "Error, please try again."
+    end
+  end
   # GET /termsofservices
   # GET /termsofservices.json
   def index

@@ -63,7 +63,12 @@
           <%= link_to "#{termsofservice.title}", termsofservice %>
         </td>
         <td>
-          <%= check_box "termsofservice", "isshown", {:checked => termsofservice.isshown, :disabled => true} %>
+          <%= check_box_tag 'isshown', termsofservice.id, termsofservice.isshown,
+              data: {
+                remote: true,
+                url: url_for(action: :toggle, id: termsofservice.id),
+                method: "POST"
+              } %>
         </td>
         <td><%= termsofservice.created_at.strftime('%Y-%m-%d %H:%M') %></td>
         <td><%= link_to '수정', edit_termsofservice_path(termsofservice) %></td>

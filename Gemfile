@@ -69,4 +69,3 @@ gem 'pagy'
 gem 'pg'
 #gem for Post Editor
 gem 'tinymce-rails'
-gem 'tinymce-rails-langs', '~> 4.2'

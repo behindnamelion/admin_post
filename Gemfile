@@ -61,11 +61,15 @@ end
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
 gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 
-#gem for User Login moduel
+#gem for User Login module
 gem 'devise'
+#devise gem localization
+gem 'devise-i18n'
 #gem for pagination
 gem 'pagy'
 #gem for database connection
 gem 'pg'
 #gem for Post Editor
 gem 'tinymce-rails'
+#gem for Enum Localization
+# gem 'human_enum_name'
